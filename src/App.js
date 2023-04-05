@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <ProductTable/>
+      <ProductTable productJson={jsonFile}/>
     </div>
   );
 }
