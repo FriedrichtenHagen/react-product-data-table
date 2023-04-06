@@ -1,10 +1,11 @@
-export default function Header(){
+export default function Header({textFilter, stockFilter}){
 
     function setQuery(event){
         // TODO
     }
     function filterInStock(event){
-        console.log("filter by in stock")
+        console.log({stockFilter})
+        //setStockFilter(!stockFilter)
     }
 
     return (

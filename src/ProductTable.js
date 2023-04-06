@@ -1,30 +1,40 @@
 import ProductCategoryRow from "./ProductCategoryRow"
 import ProductRow from "./ProductRow"
 
-export default function ProductTable({productJson}){
+export default function ProductTable({products, textFilter, stockFilter}){
+    const rows = [];
+    let lastCategory = null;
+
+    products.forEach((product) => {
+    if(stockFilter && !product.stocked){
+        return
+    }
+    if (product.category !== lastCategory) {
+      rows.push(
+        <ProductCategoryRow
+          category={product.category}
+          key={product.category} />
+      );
+    }
+    rows.push(
+      <ProductRow
+        product={product}
+        key={product.name} />
+    );
+    lastCategory = product.category;
+  });
+
     return(
         <table>
-            <tbody>
+            <thead>
                 <tr>
                     <th>Name</th>
                     <th>Price</th>
                 </tr>
-                <tr>
-                    <ProductCategoryRow/>
-                </tr>
-                <tr>
-                    <ProductRow/>
-                </tr>
-                
+            </thead>
+            <tbody>
+                {rows}
             </tbody>
         </table>
     )
 }
-
-
-
-{/* <tr>
-                <td>
-                    {productJson[0].price}     
-                </td>
-            </tr> */}

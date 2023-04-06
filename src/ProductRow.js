@@ -1,19 +1,13 @@
-export default function ProductRow(){
+export default function ProductRow({product, key}){
     return(
-        <div>
-           <tr>
-                <td>Apple</td>
-                <td>1€</td>
-            </tr>
-            <tr>
-                <td>Banana</td>
-                <td>2€</td>
-            </tr>
-            <tr>
-                <td>Gapple</td>
-                <td>6€</td>
-            </tr>
-        </div>
+        <tr>
+            <td>
+                {product.name}
+            </td>
+            <td>
+                {product.price}
+            </td>
+        </tr>
 
     )
 }
