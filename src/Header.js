@@ -1,20 +1,16 @@
-export default function Header({textFilter, stockFilter}){
+export default function Header({textFilter, stockFilter, onStockFilterChange, onTextFilterChange}){
 
-    function setQuery(event){
-        // TODO
-    }
-    function filterInStock(event){
-        console.log({stockFilter})
-        //setStockFilter(!stockFilter)
-    }
+
 
     return (
         <div className="header">
-            <input placeholder="Enter your search terms" onChange={event => setQuery(event.target.value)}></input>
+            <input placeholder="Enter your search terms" onChange={e => onTextFilterChange(e.target.value)}></input>
             <label>
-            <input type="checkbox" onChange={event => filterInStock(event)} />
+            <input type="checkbox" onChange={event => onStockFilterChange(event.target.checked)} />
             Only show products in stock
             </label>
         </div>
     )
 }
+
+// Eventlistener is not working yet

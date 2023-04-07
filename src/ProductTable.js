@@ -9,6 +9,9 @@ export default function ProductTable({products, textFilter, stockFilter}){
     if(stockFilter && !product.stocked){
         return
     }
+    if(textFilter !== "" && product.name !== textFilter){
+        return
+    }
     if (product.category !== lastCategory) {
       rows.push(
         <ProductCategoryRow

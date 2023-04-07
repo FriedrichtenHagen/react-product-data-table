@@ -1,4 +1,4 @@
-export default function ProductRow({product, key}){
+export default function ProductRow({product}){
     return(
         <tr>
             <td>

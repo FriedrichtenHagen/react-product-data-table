@@ -17,14 +17,19 @@ const jsonFile = [
 
 
 function App() {
-  const [textFilter, setTextFilter] = useState("")
-  const [stockFilter, setStockFilter] = useState(true)
+  const [textFilter, setTextFilter] = useState("Apple")
+  const [stockFilter, setStockFilter] = useState(false)
 
 
 
   return (
     <div className="App">
-      <Header textFilter={textFilter} stockFilter={stockFilter}/>
+      <Header 
+      textFilter={textFilter}
+      stockFilter={stockFilter}
+      onTextFilterChange={setTextFilter}
+      onStockFilterChange={setStockFilter}
+      />
       <ProductTable products={jsonFile} textFilter={textFilter} stockFilter={stockFilter}/>
     </div>
   );
