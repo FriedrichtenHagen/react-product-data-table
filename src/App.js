@@ -16,11 +16,22 @@ const jsonFile = [
 
 
 
+
+
 function App() {
-  const [textFilter, setTextFilter] = useState("Apple")
+  const [textFilter, setTextFilter] = useState("")
   const [stockFilter, setStockFilter] = useState(false)
 
-
+  function BottomText(){
+    // conditional rendering
+      return (
+        <div>
+        {
+          stockFilter ? `The items shown are in stock` : `Some items may not be in stock!` 
+        }
+        </div> 
+      )
+  }
 
   return (
     <div className="App">
@@ -31,8 +42,13 @@ function App() {
       onStockFilterChange={setStockFilter}
       />
       <ProductTable products={jsonFile} textFilter={textFilter} stockFilter={stockFilter}/>
+      <BottomText/>
+
     </div>
   );
 }
+
+
+
 
 export default App;
